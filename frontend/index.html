@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Calculator App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Calculator App</h1>
-    <input type="number " id="num1" placeholder="Enter first number">
-    <input type="number" id="num2" placeholder="Enter second number">
-    <button onclick="calculate()">Add</button>
-    <button onclick="calculate('subtract')">Subtract</button>
-    <button onclick="calculate('multiply')">Multiply</button>
-    <button onclick="calculate('divide')">Divide</button>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
 
-    <h2 id="result"></h2>   
-    <script>
-        function calculate(operation = 'add') {
-            const num1 = parseFloat(document.getElementById('num1').value);
-            const num2 = parseFloat(document.getElementById('num2').value);
-            let result;
+      <!-- Row 1 -->
+      <button class="btn function" onclick="clearAll()">AC</button>
+      <button class="btn function" onclick="toggleSign()">±</button>
+      <button class="btn function" onclick="percent()">%</button>
+      <button class="btn operator" onclick="chooseOperator('/')">÷</button>
 
-            switch(operation) {
-                case 'add':
-                    result = num1 + num2;
-                    break;
-                case 'subtract':
-                    result = num1 - num2;
-                    break;
-                case 'multiply':
-                    result = num1 * num2;
-                    break;
-                case 'divide':
-                    result = num1 / num2;
-                    break;
-                default:
-                    result = 'Invalid operation';
-            }
+      <!-- Row 2 -->
+      <button class="btn" onclick="appendNumber('7')">7</button>
+      <button class="btn" onclick="appendNumber('8')">8</button>
+      <button class="btn" onclick="appendNumber('9')">9</button>
+      <button class="btn operator" onclick="chooseOperator('*')">×</button>
 
-            document.getElementById('result').innerText = `Result: ${result}`;
-        }
-    </script>
+      <!-- Row 3 -->
+      <button class="btn" onclick="appendNumber('4')">4</button>
+      <button class="btn" onclick="appendNumber('5')">5</button>
+      <button class="btn" onclick="appendNumber('6')">6</button>
+      <button class="btn operator" onclick="chooseOperator('-')">−</button>
 
+      <!-- Row 4 -->
+      <button class="btn" onclick="appendNumber('1')">1</button>
+      <button class="btn" onclick="appendNumber('2')">2</button>
+      <button class="btn" onclick="appendNumber('3')">3</button>
+      <button class="btn operator" onclick="chooseOperator('+')">+</button>
+
+      <!-- Row 5 -->
+      <button class="btn zero" onclick="appendNumber('0')">0</button>
+      <button class="btn" onclick="appendDecimal()">.</button>
+      <button class="btn operator" onclick="compute()">=</button>
+
+      <!-- Extra functions -->
+      <button class="btn function wide" onclick="squareRoot()">√</button>
+      <button class="btn function wide" onclick="power()">x²</button>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
